@@ -51,12 +51,40 @@ public class JanusSchemaManager {
                 mgmt.makePropertyKey("game_mode").dataType(Integer.class).make();
             }
 
+            if (mgmt.getPropertyKey("hero_damage") == null) {
+                mgmt.makePropertyKey("hero_damage").dataType(Double.class).make();
+            }
+            if (mgmt.getPropertyKey("tower_damage") == null) {
+                mgmt.makePropertyKey("tower_damage").dataType(Double.class).make();
+            }
+
             if (mgmt.getGraphIndex("byMatchId") == null) {
                 mgmt.buildIndex("byMatchId", Vertex.class)
                         .addKey(matchIdKey)
                         .unique()
                         .buildCompositeIndex();
             }
+
+            if (mgmt.getPropertyKey("gold_per_min") == null) {
+                mgmt.makePropertyKey("gold_per_min").dataType(Double.class).make();
+            }
+            if (mgmt.getPropertyKey("xp_per_min") == null) {
+                mgmt.makePropertyKey("xp_per_min").dataType(Double.class).make();
+            }
+            if (mgmt.getPropertyKey("kills") == null) {
+                mgmt.makePropertyKey("kills").dataType(Integer.class).make();
+            }
+            if (mgmt.getPropertyKey("deaths") == null) {
+                mgmt.makePropertyKey("deaths").dataType(Integer.class).make();
+            }
+            if (mgmt.getPropertyKey("assists") == null) {
+                mgmt.makePropertyKey("assists").dataType(Integer.class).make();
+            }
+
+            if (mgmt.getPropertyKey("radiant_win") == null) {
+                mgmt.makePropertyKey("radiant_win").dataType(Boolean.class).make();
+            }
+
             if (mgmt.getGraphIndex("byPlayerId") == null) {
                 mgmt.buildIndex("byPlayerId", Vertex.class)
                         .addKey(playerIdKey)
